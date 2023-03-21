@@ -6,7 +6,7 @@ It should not start with zero.
 First digit of the pin code must be from 1 to 9.
 Next five digits of the pin code may range from 0 to 9.
 It should allow only one white space, but after three digits, although this is optional.*/
-class ValidPin{
+class CheckValidPin{
 	public static void main(String args[]){
 		Scanner sc=new Scanner(System.in);
 		String regex= "^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$";
