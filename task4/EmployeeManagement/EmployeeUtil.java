@@ -79,7 +79,7 @@ class EmployeeUtil{
 	/*
 	this method takes employee details and call validation method  internally if there is no dublicate data found then it will invoke saveData() to save employee data into file 
 	*/
-	public String addEmployee(Employee emp){
+	public String insertEmployee(Employee emp){
 		boolean res=false;
 		String data=String.format("%-20s %-20s %-20s %-20s %-20s %-30s %-20s \n",emp.getEmp_id(),emp.getEmp_name(),emp.getEmp_address(),emp.getEmp_department(),emp.getEmp_number(),emp.getEmp_email(),emp.getEmp_salary());
 		if(validation(data)){
@@ -124,12 +124,12 @@ class EmployeeUtil{
 	/*
 	This is method used for delete employee data from file
 	*/
-	public String deleteEmployeeByName(String name){
+	public String deleteEmployee(String id){
 		boolean res=false;
 		HashSet<String> listofEmp =loadData();
 		try{
 			for(String s:listofEmp){
-				if(s.substring(21,40).toLowerCase().contains(name.toLowerCase())){
+				if(s.substring(0,20).equals(id)){
 					//System.out.println("before deleted"+s.substring(21,40).toLowerCase()+" conrains "+name.toLowerCase()+s.substring(21,40).toLowerCase().contains(name.toLowerCase()));
 					listofEmp.remove(s);
 					//System.out.println("after deleted");
@@ -142,7 +142,7 @@ class EmployeeUtil{
 		//System.out.println("saving data");
 		saveAllData(listofEmp);
 		if(res){
-			return "Deleted :"+name;
+			return "Deleted :"+id;
 		}else{
 			return "Employee Not found!!";
 		}
@@ -167,7 +167,7 @@ class EmployeeUtil{
 	/*
 	This method search data from file based on employee id
 	*/
-	public String searchEmployeeById(String id){
+	public String searchEmployee(String id){
 		HashSet<String> setOfEmp=loadData();
 		for(String s:setOfEmp){
 			if(s.substring(0,6).trim().equals(id)){
@@ -176,12 +176,36 @@ class EmployeeUtil{
 		}
 		return null;
 	}
-	
-	
-	
-	public String updateEmployee(String name){
-		
+	public String searchEmployeeByName(String name){
+		HashSet<String> setOfEmp=loadData();
+		for(String s:setOfEmp){
+			if(s.substring(21,40).trim().equalsIgnoreCase(name)){
+				return s;
+			}
+		}
 		return null;
+	}
+	
+	
+	
+	public void updateEmployee(String id,Employee emp){
+		HashSet<String> setOfEmp=loadData();
+		String data=String.format("%-20s %-20s %-20s %-20s %-20s %-30s %-20s \n",id,emp.getEmp_name(),emp.getEmp_address(),emp.getEmp_department(),emp.getEmp_number(),emp.getEmp_email(),emp.getEmp_salary());
+		
+		for(String s:setOfEmp){
+			if(s.substring(0,20).trim().equals(id)){
+				try{
+					setOfEmp.remove(s);
+					setOfEmp.add(data);
+				}catch(ConcurrentModificationException e){
+					//System.out.println("Error");
+				}
+				//System.out.println("saving data");
+				
+			}
+		}
+		saveAllData(setOfEmp);
+		
 	}
 
 }
