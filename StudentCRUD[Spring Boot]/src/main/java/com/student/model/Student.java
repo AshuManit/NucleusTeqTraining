@@ -14,9 +14,8 @@ import com.sun.istack.NotNull;
 public class Student {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="stu_id")
-	private int stuId;
+	private String stuId;
 	
 	@NotNull
 	@Column(name="stu_name")
@@ -32,10 +31,10 @@ public class Student {
 
 	
 
-	public int getStuId() {
+	public String getStuId() {
 		return stuId;
 	}
-	public void setStuId(int stuId) {
+	public void setStuId(String stuId) {
 		this.stuId = stuId;
 	}
 	public String getStuName() {
