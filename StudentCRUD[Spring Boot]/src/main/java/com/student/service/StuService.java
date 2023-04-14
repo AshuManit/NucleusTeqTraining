@@ -22,23 +22,37 @@ public class StuService {
 		stuRepo.save(student);
 	}
 
-	public void updateStudent(Student student, Integer id) {
+	public void updateStudent(Student student, String id) {
 		// TODO Auto-generated method stub
-		stuRepo.save(student);
+		Optional<Student> stu=stuRepo.findById(id);
+		
+		if(stu.isPresent())
+		{
+			stuRepo.save(student);
+		}else {
+			System.out.println("Record not found you are looking for");
+		}
+		
 	}
 
-	public void deleteStudent(Integer id) {
+	public void deleteStudent(String id)  {
 		// TODO Auto-generated method stub
-		stuRepo.deleteById(id);
+		Optional<Student> stu=stuRepo.findById(id);
+		if(stu.isPresent()) {
+			stuRepo.deleteById(id);
+		}else {
+			System.out.println("Record not found for perform delete operation");
 		}
+		
+	}
 
 	public List<Student> getAllStudent() {
-		List<Student> listOfStudent=new ArrayList<Student>();
-		stuRepo.findAll().forEach(student->listOfStudent.add(student));
-		return listOfStudent;
+		List<Student> students=new ArrayList<Student>();
+		stuRepo.findAll().forEach(student->students.add(student));
+		return students;
 	}
 
-	public Optional<Student> getStudentById(Integer id) {
+	public Optional<Student> getStudentById(String id) {
 		// TODO Auto-generated method stub
 		Optional<Student> stu=stuRepo.findById(id);
 		return stu;
