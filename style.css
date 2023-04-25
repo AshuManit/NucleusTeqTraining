@@ -1,0 +1,57 @@
+body {
+    height: 100%;
+    background-color: rgba(255, 167, 95, 0.801);
+    border-radius: 63%;
+}
+.signup-form{ 
+    margin: auto;
+    margin-top: 50px;
+    height: 600px;
+    width: 850px;
+    background-color: rgb(247, 247, 247);
+}
+
+.form-header{
+    font-family: "Gill Sans", sans-serif;
+}
+.form-footer button{
+  background-color: rgba(255, 167, 95, 0.801);
+  color: white;
+  font-size:large;
+  width: 100%;
+  height: max-content;
+  padding: 6px;
+  outline: none; 
+  border: none; 
+  border-radius: 3%;
+}
+
+
+.form{
+    margin: 20px;
+    padding: 1%;
+    
+
+}
+.division{
+    width:50%;
+   
+    float:left;
+  }
+.label-title {
+    color:#242222;
+    font-size: 17px;
+    font-weight:bold;
+    font-family: sans-serif; 
+    
+}
+ .division .input-box{
+    width: 80%;
+    height: 40px;;
+    padding: 2px;
+    padding-left: 30px;
+    border-radius: 3%;
+    outline: none; 
+ 
+  border-color: rgba(235, 228, 228, 0.233);
+ }

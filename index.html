@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registration page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='main.js'></script>
+</head>
+<body >
+    <form class="signup-form" action="/register" method="post">
+
+        <!-- form header -->
+        <div class="form-header form">
+           <h2>Registration</h2> 
+           <hr style="height:5px;border:none;width: 42px;background-color: rgba(255, 167, 95, 0.801); margin-left: 0%;">
+        </div>
+
+    
+        <!-- form body -->
+        <div class="form-body form">
+            <div class="division"> 
+                <label class="label-title">Full Name</label><br>
+                <input class="input-box" type="text" placeholder="Enter your name" required/>
+            </div>
+            <div class="division">
+                <label class="label-title">Username</label><br>
+                <input class="input-box" type="text" placeholder="Enter your username" required/>
+            </div>
+        </div>
+        <!-- form body2 -->
+        <div class="form-body form">
+            <div class="division"> 
+                <label class="label-title">Email</label><br>
+                <input class="input-box" type="email" placeholder="Enter your email" required/>
+            </div>
+            <div class="division">
+                <label class="label-title">Phone Number</label><br>
+                <input class="input-box" type="text" placeholder="Enter your number" required/>
+            </div>
+            
+        </div>
+        
+        <!-- form body3 -->
+        <div class="form-body form">
+            <div class="division"> 
+                <label class="label-title">Password</label><br>
+                <input class="input-box" type="password" placeholder="Enter your password" required/>
+            </div>
+            <div class="division">
+                <label class="label-title">Username</label><br>
+                <input class="input-box" type="password" placeholder="Confirm your password" required/>
+            </div>
+        </div> 
+
+          <!-- form body4 -->
+        <div class="form-body form">
+            <legend style=" color:#242222;
+            font-size: 17px;
+            font-weight:bold;
+            font-family: sans-serif;
+        " >Gender</legend>
+            <input class="input-box" type="radio" name="gender" id="male" value="male" checked>
+            <label class="label-title" for="male">Male</label>
+            <input class="input-box" type="radio" name="gender" id="female" value="female">
+            <label class="label-title" for="female">Female</label>
+            <input class="input-box" type="radio" name="gender" id="female" value="female">
+            <label class="label-title" for="female">Prefer not to say</label>
+        </div>
+        
+        
+        <!-- form footer -->
+        <div class="form-footer form">
+            <button  type="submit" form="form1" value="Submit">Register</button>
+        </div>
+    
+    </form>
+</body>
+</html>
